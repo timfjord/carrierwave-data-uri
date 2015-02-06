@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Carrierwave::Data::Uri::VERSION
   spec.authors       = ['Tima Maslyuchenko']
   spec.email         = ['insside@gmail.com']
-  spec.summary       = %q{Carrierwave plugin that allow create image based from data uri}
-  spec.description   = %q{Carrierwave plugin that allow create image based from data uri}
+  spec.summary       = %q{Carrierwave plugin that allows create image from data uri}
+  spec.description   = %q{Carrierwave plugin that allows create image from data uri}
   spec.homepage      = 'https://github.com/timsly/carrierwave-data-uri'
   spec.license       = 'MIT'
 

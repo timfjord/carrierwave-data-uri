@@ -1,6 +1,6 @@
-# Carrierwave::Data::Uri
+# CarrierWave::DataUri
 
-TODO: Write a gem description
+Carrierwave plugin that allows create image from data uri
 
 ## Installation
 
@@ -20,8 +20,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+class User < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
+end
+```
 
+Then we can create image from data
+
+```
+user = User.find 123
+user.image_data_uri = 'data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP////8AAP///yH5BAEAAAMALAAAAAABAAEAAAICVAEAOw=='
+user.save
+```
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/carrierwave-data-uri/fork )
