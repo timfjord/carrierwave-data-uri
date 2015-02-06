@@ -30,7 +30,7 @@ Then we can create image from data
 
 ```
 user = User.find 123
-user.image_data_uri = 'data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP////8AAP///yH5BAEAAAMALAAAAAABAAEAAAICVAEAOw=='
+user.avatar_data_uri = 'data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP////8AAP///yH5BAEAAAMALAAAAAABAAEAAAICVAEAOw=='
 user.save
 ```
 ## Contributing
