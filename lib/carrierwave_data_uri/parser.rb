@@ -23,7 +23,7 @@ module CarrierWave
 
       def to_file
         @file ||= begin
-          file = Tempfile.new ['data_uri_upload', extension]
+          file = Tempfile.new ['data_uri_upload', ".#{extension}"]
           file.binmode
           file << binary_data
           file.rewind
