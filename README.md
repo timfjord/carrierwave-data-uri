@@ -33,6 +33,16 @@ user = User.find 123
 user.avatar_data_uri = 'data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP////8AAP///yH5BAEAAAMALAAAAAABAAEAAAICVAEAOw=='
 user.save
 ```
+
+Optionally, to customize the file name, specify the `#{column}_data_filename` attribute before the `#{column}_data_uri` attribute.
+
+```ruby
+user = User.find 123
+user.avatar_data_filename = 'somefile.jpg'
+user.avatar_data_uri = 'data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP////8AAP///yH5BAEAAAMALAAAAAABAAEAAAICVAEAOw=='
+user.save
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/carrierwave-data-uri/fork )

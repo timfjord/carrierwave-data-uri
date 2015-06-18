@@ -1,4 +1,3 @@
-require 'tempfile'
 require 'base64'
 
 module CarrierWave
@@ -21,12 +20,13 @@ module CarrierWave
         @binary_data ||= Base64.decode64 data
       end
 
-      def to_file
+      def to_file(options = {})
         @file ||= begin
           file = Tempfile.new ['data_uri_upload', ".#{extension}"]
           file.binmode
           file << binary_data
           file.rewind
+          file.original_filename = options[:original_filename]
           file
         end
       end
