@@ -8,8 +8,10 @@ module CarrierWave
         super
 
         class_eval <<-RUBY, __FILE__, __LINE__+1
+          attr_accessor :#{column}_data_filename
+
           def #{column}_data_uri=(data)
-            self.#{column} = Parser.new(data).to_file
+            self.#{column} = Parser.new(data).to_file original_filename: self.#{column}_data_filename
           end
         RUBY
       end
