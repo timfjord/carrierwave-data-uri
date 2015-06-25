@@ -22,7 +22,7 @@ RSpec.describe CarrierWave::DataUri::Parser do
       parsed = CarrierWave::DataUri::Parser.new data_uri
       file = parsed.to_file
 
-      expect(file).to be_a_kind_of Tempfile
+      expect(file).to be_a_kind_of CarrierWave::DataUri::Tempfile
     end
   end
 end
