@@ -1,4 +1,4 @@
-# CarrierWave::DataUri
+# CarrierWave::DataUri [![Build Status](https://travis-ci.org/timsly/carrierwave-data-uri.svg)](https://travis-ci.org/timsly/carrierwave-data-uri)
 
 Carrierwave plugin that allows create image from data uri
 

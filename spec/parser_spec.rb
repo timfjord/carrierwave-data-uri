@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 RSpec.describe CarrierWave::DataUri::Parser do
   let(:data_uri) do
     'data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP////8AAP///yH5BAEAAAMALAAAAAABAAEAAAICVAEAOw=='
@@ -7,7 +5,7 @@ RSpec.describe CarrierWave::DataUri::Parser do
 
   describe 'initialization' do
     it 'should raise error when data is invalid' do
-      expect { CarrierWave::DataUri::Parser.new 'invadli_data' }.to raise_error
+      expect { CarrierWave::DataUri::Parser.new 'invadli_data' }.to raise_error ArgumentError
     end
 
     it 'should parse data on init' do
