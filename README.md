@@ -34,11 +34,12 @@ user.avatar_data_uri = 'data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP////8AAP///y
 user.save
 ```
 
-Optionally, to customize the file name, specify the `#{column}_data_filename` attribute before the `#{column}_data_uri` attribute.
+Optionally, to customize the file name, specify the `#{column}_data_filename` and `#{column}_data_mimetype` attributes before the `#{column}_data_uri` attribute.
 
 ```ruby
 user = User.find 123
 user.avatar_data_filename = 'somefile.jpg'
+user.avatar_data_mimetype = 'image/jpeg'
 user.avatar_data_uri = 'data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP////8AAP///yH5BAEAAAMALAAAAAABAAEAAAICVAEAOw=='
 user.save
 ```
