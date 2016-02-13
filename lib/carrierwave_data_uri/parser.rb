@@ -26,7 +26,7 @@ module CarrierWave
           file.binmode
           file << binary_data
           file.rewind
-          file.original_filename = options[:original_filename]
+          file.original_filename = options[:original_filename] || "temp.#{extension}"
           file
         end
       end
