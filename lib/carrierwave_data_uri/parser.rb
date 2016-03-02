@@ -27,6 +27,7 @@ module CarrierWave
           file << binary_data
           file.rewind
           file.original_filename = options[:original_filename]
+          file.content_type = options[:content_type]
           file
         end
       end
