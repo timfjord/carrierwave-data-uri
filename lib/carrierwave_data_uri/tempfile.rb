@@ -6,7 +6,7 @@ module CarrierWave
       attr_writer :original_filename
 
       def original_filename
-        @original_filename || File.basename(@tmpname)
+        @original_filename || File.basename(path)
       end
     end
   end
