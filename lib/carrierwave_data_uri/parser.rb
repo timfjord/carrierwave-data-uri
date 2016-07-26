@@ -1,4 +1,4 @@
-require 'base64'
+require 'data_uri'
 
 module CarrierWave
   module DataUri
@@ -6,18 +6,16 @@ module CarrierWave
       attr_reader :type, :encoder, :data, :extension
 
       def initialize(data_uri)
-        if data_uri.match /^data:(.*?);(.*?),(.*)$/
-          @type = $1
-          @encoder = $2
-          @data = $3
-          @extension = $1.split('/')[1]
-        else
-          raise ArgumentError, 'Cannot parse data'
-        end
+        uri = URI::Data.new data_uri
+        @type = uri.content_type
+        @extension = @type.split('/')[1]
+        @data = uri.data
+      rescue URI::InvalidURIError => e
+        raise ArgumentError, 'Cannot parse data'
       end
 
       def binary_data
-        @binary_data ||= Base64.decode64 data
+        @data
       end
 
       def to_file(options = {})
