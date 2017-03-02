@@ -56,4 +56,8 @@ RSpec.describe 'Integration' do
 
     expect(image.src.file.filename).to end_with '.jpeg'
   end
+
+  it 'should raise an error on assignig empty string' do
+    expect{image.src_data_uri = ''}.to raise_error ArgumentError
+  end
 end
