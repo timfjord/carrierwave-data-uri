@@ -13,3 +13,7 @@
 *.a
 mkmf.log
 /uploads
+.idea
+.idea/*
+*.iws
+*.gem
