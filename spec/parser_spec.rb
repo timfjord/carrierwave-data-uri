@@ -5,7 +5,7 @@ RSpec.describe CarrierWave::DataUri::Parser do
 
   describe 'initialization' do
     it 'should raise error when data is invalid' do
-      expect { CarrierWave::DataUri::Parser.new 'invadli_data' }.to raise_error ArgumentError
+      expect { CarrierWave::DataUri::Parser.new 'invadli_data' }.to raise_error CarrierWave::DataUri::InvalidData
     end
 
     it 'should parse data on init' do
