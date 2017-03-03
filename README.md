@@ -1,6 +1,10 @@
-# CarrierWave::DataUri [![Build Status](https://travis-ci.org/timsly/carrierwave-data-uri.svg)](https://travis-ci.org/timsly/carrierwave-data-uri)
+# CarrierWave::DataUri
+
+[![Build Status](https://travis-ci.org/timsly/carrierwave-data-uri.svg)](https://travis-ci.org/timsly/carrierwave-data-uri)
 
 Carrierwave plugin that allows create image from data uri
+
+:warning: Please read the [migration notes](#migration-notes) before upgrading to a new major version.
 
 ## Installation
 
@@ -34,6 +38,20 @@ user.avatar_data_uri = 'data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP////8AAP///y
 user.save
 ```
 
+and then retrieve passed data
+
+```
+user.avatar_data_uri # => data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP////8AAP///yH5BAEAAAMALAAAAAABAAEAAAICVAEAOw==
+```
+
+In case emtpy/invalid data error won't be raised.
+Loud version should be used instead to raise an error on emtpy/invalid data:
+
+```
+user = User.find 123
+user.avatar_data_uri_loud = '' # will raise `CarrierWave::DataUri::InvalidData` error
+```
+
 Optionally, to customize the file name, specify the `#{column}_data_filename` and `#{column}_data_mimetype` attributes before the `#{column}_data_uri` attribute.
 
 ```ruby
@@ -43,6 +61,12 @@ user.avatar_data_mimetype = 'image/jpeg'
 user.avatar_data_uri = 'data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP////8AAP///yH5BAEAAAMALAAAAAABAAEAAAICVAEAOw=='
 user.save
 ```
+
+## Migration Notes
+
+#### Version 0.2.0
+
+- Assigning empty data is not raising an error now. Use loud version(`model.field_data_uri_loud =`) instead.
 
 ## Contributing
 

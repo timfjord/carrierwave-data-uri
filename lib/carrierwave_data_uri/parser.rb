@@ -10,8 +10,8 @@ module CarrierWave
         @type = uri.content_type
         @extension = @type.split('/')[1]
         @data = uri.data
-      rescue URI::InvalidURIError => e
-        raise ArgumentError, 'Cannot parse data'
+      rescue URI::InvalidURIError
+        raise InvalidData, 'Cannot parse data'
       end
 
       def binary_data
@@ -30,5 +30,7 @@ module CarrierWave
         end
       end
     end
+
+    class InvalidData < StandardError; end
   end
 end
