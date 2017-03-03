@@ -1,7 +1,7 @@
 module Carrierwave
   module Data
     module Uri
-      VERSION = '0.0.3'
+      VERSION = '0.2.0'
     end
   end
 end
