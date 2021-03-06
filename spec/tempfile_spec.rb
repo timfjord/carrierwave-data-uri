@@ -8,17 +8,31 @@ RSpec.describe CarrierWave::DataUri::Tempfile do
     CarrierWave::DataUri::Parser.new(data_uri).to_file(options)
   end
 
+  describe '#original_filename' do
+    subject { tempfile.original_filename }
 
-  describe '#content_type' do
-    subject(:content_type) { tempfile.content_type }
-
-    describe 'without a content_type supplied' do
-      specify { expect(content_type).to eq 'image/gif' }
+    context 'without an original_filename supplied' do
+      it { is_expected.to start_with 'data_uri_upload' }
     end
 
-    describe 'with a specified content_type' do
+    context 'with a specified original_filename' do
+      let(:options) { { original_filename: 'my_name.jpg' } }
+
+      it { is_expected.to eq 'my_name.jpg' }
+    end
+  end
+
+  describe '#content_type' do
+    subject { tempfile.content_type }
+
+    context 'without a content_type supplied' do
+      it { is_expected.to eq 'image/gif' }
+    end
+
+    context 'with a specified content_type' do
       let(:options) { { content_type: 'image/jpeg' } }
-      specify { expect(content_type).to eq 'image/jpeg' }
+
+      it { is_expected.to eq 'image/jpeg' }
     end
   end
 end

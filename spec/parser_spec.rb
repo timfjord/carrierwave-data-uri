@@ -4,11 +4,11 @@ RSpec.describe CarrierWave::DataUri::Parser do
   end
 
   describe 'initialization' do
-    it 'should raise error when data is invalid' do
+    it 'raises an error when the data URI is invalid' do
       expect { CarrierWave::DataUri::Parser.new 'invadli_data' }.to raise_error CarrierWave::DataUri::InvalidData
     end
 
-    it 'should parse data on init' do
+    it 'parses the data URI on init' do
       parsed = CarrierWave::DataUri::Parser.new data_uri
 
       expect(parsed.extension).to eql 'gif'
@@ -16,7 +16,7 @@ RSpec.describe CarrierWave::DataUri::Parser do
   end
 
   describe '#to_file' do
-    it 'should generate temp file based on data' do
+    it 'generates a temp file based on the data URI' do
       parsed = CarrierWave::DataUri::Parser.new data_uri
       file = parsed.to_file
 

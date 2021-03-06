@@ -10,7 +10,6 @@ module CarrierWave
       def content_type
         @content_type || MIME::Types.type_for(original_filename).first.content_type
       end
-
     end
   end
 end

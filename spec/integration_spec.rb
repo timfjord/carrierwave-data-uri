@@ -32,7 +32,7 @@ RSpec.describe 'Integration' do
   end
   let(:image) { Image.new }
 
-  it 'should save image with data_uri' do
+  it 'saves an image from a data URI' do
     image.src_data_uri = gif_data_uri
     image.save!
 
@@ -40,14 +40,14 @@ RSpec.describe 'Integration' do
     expect(image.src.file.filename).to end_with '.gif'
   end
 
-  it 'should create image with data_uri' do
+  it 'creates an image from a data URI' do
     new_image = Image.create! src_data_uri: gif_data_uri
 
     expect(new_image[:src]).to be_present
     expect(new_image.src.file.filename).to end_with '.gif'
   end
 
-  it 'should update image with data_uri' do
+  it 'updates an image from a data URI' do
     image.src_data_uri = gif_data_uri
     image.save!
 
@@ -56,17 +56,17 @@ RSpec.describe 'Integration' do
     expect(image.src.file.filename).to end_with '.jpeg'
   end
 
-  it 'should allow to retrieve passed data' do
+  it 'allows to retrieve the passed data' do
     image.src_data_uri = gif_data_uri
 
     expect(image.src_data_uri).to eql gif_data_uri
   end
 
-  it 'should not raise an error on assignig empty string' do
-    expect{image.src_data_uri = ''}.not_to raise_error
+  it 'doesn\'t raise an error on assignig empty string' do
+    expect { image.src_data_uri = '' }.not_to raise_error
   end
 
-  it 'should allow to assign data to the loud version of setter but disallow to retrieve passed data' do
+  it 'allows to assign data to the loud version of the setter but disallow to retrieve the passed data' do
     image.src_data_uri_loud = gif_data_uri
     image.save!
 
@@ -75,7 +75,7 @@ RSpec.describe 'Integration' do
     expect(image.src_data_uri).to be_nil
   end
 
-  it 'should raise an error on assignig empty string to the loud version' do
-    expect{image.src_data_uri_loud = ''}.to raise_error CarrierWave::DataUri::InvalidData
+  it 'raises an error on assigning an empty string to the loud version' do
+    expect { image.src_data_uri_loud = '' }.to raise_error CarrierWave::DataUri::InvalidData
   end
 end
