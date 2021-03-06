@@ -1,9 +1,8 @@
 RSpec.describe 'Integration' do
   ActiveRecord::Base.establish_connection adapter: 'sqlite3', database: ':memory:'
-  ActiveRecord::Base.raise_in_transactional_callbacks = true
   ActiveRecord::Migration.verbose = false
 
-  class TestMigration < ActiveRecord::Migration
+  class TestMigration < ActiveRecord::Migration[6.1]
     def self.up
       create_table :images, :force => true do |t|
         t.column :src, :string

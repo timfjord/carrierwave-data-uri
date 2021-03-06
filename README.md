@@ -1,8 +1,6 @@
-# CarrierWave::DataUri
+# CarrierWave::DataUri ![Build Status](https://github.com/timfjord/carrierwave-data-uri/actions/workflows/test.yml/badge.svg)
 
-[![Build Status](https://travis-ci.org/timsly/carrierwave-data-uri.svg)](https://travis-ci.org/timsly/carrierwave-data-uri)
-
-Carrierwave plugin that allows create image from data uri
+Carrierwave plugin that allows to create images from data uri
 
 :warning: Please read the [migration notes](#migration-notes) before upgrading to a new major version.
 
@@ -30,7 +28,7 @@ class User < ActiveRecord::Base
 end
 ```
 
-Then we can create image from data
+Then a data string can be used as a source for the uploader
 
 ```
 user = User.find 123
@@ -38,14 +36,14 @@ user.avatar_data_uri = 'data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP////8AAP///y
 user.save
 ```
 
-and then retrieve passed data
+the data string can be retrieved too
 
 ```
 user.avatar_data_uri # => data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP////8AAP///yH5BAEAAAMALAAAAAABAAEAAAICVAEAOw==
 ```
 
-In case emtpy/invalid data error won't be raised.
-Loud version should be used instead to raise an error on emtpy/invalid data:
+There will be no error in case of empty or invalid data.
+There is a loud version available that could be used to raise an error on empty or invalid data:
 
 ```
 user = User.find 123

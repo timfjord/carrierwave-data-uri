@@ -1,5 +1,3 @@
-require 'data_uri'
-
 module CarrierWave
   module DataUri
     class Parser

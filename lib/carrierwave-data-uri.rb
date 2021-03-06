@@ -1,4 +1,8 @@
 require 'carrierwave'
+require 'data_uri'
+require 'mime/types'
+require 'tempfile'
+
 require 'carrierwave/orm/activerecord'
 require 'carrierwave_data_uri/tempfile'
 require 'carrierwave_data_uri/parser'
