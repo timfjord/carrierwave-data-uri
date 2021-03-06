@@ -1,6 +1,4 @@
-# CarrierWave::DataUri
-
-![Build Status](https://github.com/timfjord/carrierwave-data-uri/actions/workflows/test.yml/badge.svg)
+# CarrierWave::DataUri ![Build Status](https://github.com/timfjord/carrierwave-data-uri/actions/workflows/test.yml/badge.svg)
 
 Carrierwave plugin that allows to create images from data uri
 
