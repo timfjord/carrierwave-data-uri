@@ -1,5 +1,3 @@
-require 'tempfile'
-
 module CarrierWave
   module DataUri
     class Tempfile < ::Tempfile
