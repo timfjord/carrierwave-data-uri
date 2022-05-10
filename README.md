@@ -1,3 +1,5 @@
+[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://stand-with-ukraine.pp.ua)
+
 # CarrierWave::DataUri ![Build Status](https://github.com/timfjord/carrierwave-data-uri/actions/workflows/test.yml/badge.svg)
 
 Carrierwave plugin that allows to create images from data uri
